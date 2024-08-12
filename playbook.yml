@@ -1,6 +1,6 @@
 - name: Setting up the Nginx Server
   hosts: server
-  remote_user: ubuntu                                      #Set the user to be whichever user's ssh password less connect permissions you have
+  remote_user: ubuntu
 
   tasks:
    - name: Install latest version of "nginx"
