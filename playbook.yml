@@ -1,0 +1,19 @@
+- name: Setting up the Nginx Server
+  hosts: server
+  remote_user: ubuntu
+
+  tasks:
+   - name: Install latest version of "nginx"
+     become: true
+     ansible.builtin.apt:
+      name: nginx
+      state: present
+      update_cache: true
+   - name: Copy the new index.html file for the default nginx page
+     become: true
+     ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.nginx-debian.html
+      owner: www-data
+      group: www-data
+      mode: '0644'
